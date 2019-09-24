@@ -1,7 +1,8 @@
-const router = require('express').Router();
-const axios = require('axios');
+import { Router } from 'express';
+import axios from 'axios';
+import Article from '../../models/Article';
 
-const Article = require('../../models/Article');
+const router = Router();
 
 // @route  GET api/articles
 // @desc   Get all articles
@@ -12,7 +13,7 @@ router.get('/', async (req, res) => {
 
         res.status(200).json(response);
     } catch (err) {
-        res.status(404).json({ success: false });
+        res.status(404).json({ success: false, message: err.message });
     }
 });
 
@@ -22,15 +23,16 @@ router.get('/', async (req, res) => {
 router.post('/', async (req, res) => {
     try {
         // Get top stories from NYT API
-        const response = await axios.get(
+        const response: { data: { results: [] } } = await axios.get(
             'https://api.nytimes.com/svc/topstories/v2/home.json?api-key=' + process.env.NYT_API_KEY
         );
 
         // Isolate the results
-        const data = await response.data.results;
+        const data: { results: [] } = await response.data;
+        const results: [] = await data.results;
 
         // Loop over results
-        data.forEach(article => {
+        results.forEach(article => {
             // Extract data we wish to store in db
             const { title, abstract, url, updated_date } = article;
 
@@ -38,18 +40,15 @@ router.post('/', async (req, res) => {
             const newArticle = new Article({ title, abstract, url, updated_date });
 
             // Check if an article with that title already exists
-            if (Article.find({ title }).limit(1)) {
-                console.log('already exists');
-            } else {
-                console.log(
-                    `${title} saved to ${
-                        MONGODB_URI === process.env.MONGODB_URI ? 'mlabDB' : 'local mongoDB'
-                    }`
-                );
+            const checkIfPresent = () => {
+                Article.find({ title: newArticle.title }, (err, docs) => {
+                    if (!docs.length) {
+                        newArticle.save();
+                    }
+                });
+            };
 
-                // Save the new article to the db
-                newArticle.save();
-            }
+            checkIfPresent();
         });
 
         // Return a 200 so the client knows the action was successful
