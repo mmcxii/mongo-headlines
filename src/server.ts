@@ -33,7 +33,7 @@ mongoose
     .then(() =>
         console.log(MONGODB_URI === process.env.MONGODB_URI ? 'mlab connected' : 'local mongoDB connected...')
     )
-    .catch(err => console.log(err));
+    .catch((err: any) => console.log(err));
 
 // Start Server
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
