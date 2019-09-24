@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
 import Normalize from 'react-normalize';
 
-import { Footer, Header } from './Layout';
+import { Container, Footer, Header } from './Layout';
 import { fallingStar, shipsOfficer, spacing } from './Utilities';
 
 interface ArticleProps {
@@ -89,6 +89,6 @@ const AppWrapper = styled.div`
     min-height: 100vh;
 `;
 
-const PageWrapper = styled.main`
+const PageWrapper = styled(Container).attrs({ as: 'main' })`
     grid-area: page;
 `;

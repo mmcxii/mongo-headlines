@@ -10,7 +10,7 @@ const Header: React.FC<Props> = () => {
     return (
         <Wrapper>
             <HeaderContainer>
-                <h1>Mongo Headlines</h1>
+                <Title>Mongo Headlines</Title>
             </HeaderContainer>
         </Wrapper>
     );
@@ -28,4 +28,9 @@ const Wrapper = styled.header`
 const HeaderContainer = styled(Container)`
     display: flex;
     justify-content: center;
+    text-align: center;
+`;
+
+const Title = styled.h1`
+    letter-spacing: 2px;
 `;

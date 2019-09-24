@@ -32,10 +32,21 @@ const Wrapper = styled.footer`
 
 const FooterContainer = styled(Container)`
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
+
+    @media screen and (min-width: 768px) {
+        flex-direction: row;
+        justify-content: space-between;
+    }
 `;
 
 const Byline = styled.p`
     font-style: italic;
+    padding-bottom: ${spacing.sm};
+
+    @media screen and (min-width: 768px) {
+        padding-bottom: 0;
+    }
 `;
