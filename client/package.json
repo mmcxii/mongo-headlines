@@ -9,7 +9,9 @@
         "@types/react-dom": "16.9.0",
         "react": "^16.9.0",
         "react-dom": "^16.9.0",
+        "react-normalize": "^0.4.3",
         "react-scripts": "3.1.2",
+        "styled-components": "^4.4.0",
         "typescript": "3.6.3"
     },
     "scripts": {
@@ -33,5 +35,8 @@
             "last 1 safari version"
         ]
     },
-    "proxy": "http://localhost:5000"
+    "proxy": "http://localhost:5000",
+    "devDependencies": {
+        "@types/styled-components": "^4.1.19"
+    }
 }
