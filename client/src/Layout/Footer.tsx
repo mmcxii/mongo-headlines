@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { endingNavyBlue, fallingStar, spacing } from '../Utilities';
+import { endingNavyBlue, fallingStar, spacing } from 'Utilities';
 import Container from './Container';
 import Social from './Social';
 

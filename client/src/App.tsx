@@ -1,56 +1,24 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
 import styled, { createGlobalStyle } from 'styled-components';
 import Normalize from 'react-normalize';
 
-import { Container, Footer, Header } from './Layout';
-import { fallingStar, shipsOfficer, spacing } from './Utilities';
-
-interface ArticleProps {
-    _id: string;
-    title: string;
-    abstract: string;
-    updated_date: Date;
-    url: string;
-    saved: boolean;
-    comments: [];
-}
+import { fallingStar, shipsOfficer, spacing } from 'Utilities';
+import { Footer, Header } from 'Layout';
+import Pages from 'Pages';
 
 const App: React.FC = () => {
-    const [dataLoading, setDataLoading] = useState<boolean>(false);
-    const [articles, setArticles] = useState<ArticleProps[]>([]);
-
-    useEffect(() => {
-        const getData = async () => {
-            setDataLoading(true);
-            try {
-                const res: Response = await fetch('/api/articles');
-                const data: [] = await res.json();
-
-                setArticles(data);
-                setDataLoading(false);
-            } catch (err) {
-                console.log(err);
-            }
-        };
-
-        getData();
-    }, []);
-
     return (
-        <AppWrapper>
-            <Normalize />
-            <GlobalStyles />
+        <BrowserRouter>
+            <AppWrapper>
+                <Normalize />
+                <GlobalStyles />
 
-            <Header />
-            <PageWrapper>
-                {dataLoading ? (
-                    <p>Loading...</p>
-                ) : (
-                    articles.length > 0 && articles.map(article => <p key={article._id}>{article.title}</p>)
-                )}
-            </PageWrapper>
-            <Footer />
-        </AppWrapper>
+                <Header />
+                <Pages />
+                <Footer />
+            </AppWrapper>
+        </BrowserRouter>
     );
 };
 
@@ -87,8 +55,4 @@ const AppWrapper = styled.div`
     grid-template-areas: 'header' 'page' 'footer';
     grid-row-gap: ${spacing.sm};
     min-height: 100vh;
-`;
-
-const PageWrapper = styled(Container).attrs({ as: 'main' })`
-    grid-area: page;
 `;

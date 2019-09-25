@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { spacing, mangentaPurple, fieryFuchsia } from '../Utilities';
+
+import { spacing, mangentaPurple, fieryFuchsia } from 'Utilities';
 
 interface Props {}
 

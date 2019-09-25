@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { endingNavyBlue, fallingStar } from '../Utilities';
+import { endingNavyBlue, fallingStar } from 'Utilities';
 import Container from './Container';
 
 interface Props {}
