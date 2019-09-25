@@ -37,14 +37,15 @@ const Headlines: React.FC<Props> = () => {
     }, []);
 
     return (
-        <>
+        <section>
+            <h2>Current Headlines</h2>
             {dataIsLoading ? (
                 <p>Loading...</p>
             ) : (
                 articles.length > 0 &&
                 articles.map(article => <ArticleCard key={article._id} article={article} />)
             )}
-        </>
+        </section>
     );
 };
 
