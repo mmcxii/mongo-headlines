@@ -24,7 +24,7 @@ router.get('/:_id', async (req, res) => {
 // @access Public
 router.post('/:_id', async (req, res) => {
     const { _id } = req.params;
-    const { user, message } = req.body;
+    const { user, message }: { user: string; message: string } = req.body;
 
     try {
         const newComment = new Comment({ article: _id, user, message });

@@ -9,6 +9,7 @@ interface Props {
 }
 
 const CommentsSection: React.FC<Props> = ({ articleId }) => {
+    const [commentsShouldBeFetched, setCommentsShouldBeFetched] = useState<boolean>(true);
     const [comments, setComments] = useState<CommentProps[]>([]);
 
     useEffect(() => {
@@ -17,10 +18,13 @@ const CommentsSection: React.FC<Props> = ({ articleId }) => {
             const data = await response.json();
 
             setComments(data);
+            setCommentsShouldBeFetched(false);
         };
 
-        getComments();
-    }, []);
+        if (commentsShouldBeFetched) {
+            getComments();
+        }
+    }, [commentsShouldBeFetched]);
 
     return (
         <>
@@ -35,7 +39,7 @@ const CommentsSection: React.FC<Props> = ({ articleId }) => {
                 ))
             )}
 
-            <AddCommentForm articleId={articleId} />
+            <AddCommentForm articleId={articleId} setCommentsShouldBeFetched={setCommentsShouldBeFetched} />
         </>
     );
 };

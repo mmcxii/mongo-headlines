@@ -5,17 +5,18 @@ import { Button } from 'Elements';
 
 interface Props {
     articleId: string;
+    setCommentsShouldBeFetched: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const AddCommentForm: React.FC<Props> = ({ articleId }) => {
+const AddCommentForm: React.FC<Props> = ({ articleId, setCommentsShouldBeFetched }) => {
     const [formWasSubmitted, setFormWasSubmitted] = useState(false);
     const [values, handleChange] = useForm({ user: '', message: '' });
 
     useEffect(() => {
-        const addComment = async () => {
+        const addComment = () => {
             const { user, message } = values;
 
-            const response = await fetch(`/api/comments/${articleId}`, {
+            fetch(`/api/comments/${articleId}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -23,9 +24,10 @@ const AddCommentForm: React.FC<Props> = ({ articleId }) => {
                 body: JSON.stringify({ user, message }),
             });
 
-            const data = await response.json();
-
-            console.log(data);
+            setFormWasSubmitted(false);
+            setCommentsShouldBeFetched(true);
+            values.user = '';
+            values.message = '';
         };
 
         if (formWasSubmitted) {
@@ -34,7 +36,12 @@ const AddCommentForm: React.FC<Props> = ({ articleId }) => {
     }, [formWasSubmitted]);
 
     return (
-        <form onSubmit={() => setFormWasSubmitted(true)}>
+        <form
+            onSubmit={e => {
+                e.preventDefault();
+                setFormWasSubmitted(true);
+            }}
+        >
             <input type='text' name='user' required value={values.user} onChange={handleChange} />
             <textarea
                 name='message'

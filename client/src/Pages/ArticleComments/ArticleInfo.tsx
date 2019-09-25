@@ -12,6 +12,7 @@ const ArticleInfo: React.FC<Props> = ({ article }) => {
     return (
         <>
             <h2>{title}</h2>
+            {/* TODO: Use Moment.js to format date */}
             <small>{updated_date}</small>
             <p>{abstract}</p>
         </>
