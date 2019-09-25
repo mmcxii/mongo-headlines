@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 import { Container } from 'Layout';
 import Headlines from './Headlines';
+import ArticleComments from './ArticleComments';
 
 interface Props {}
 
@@ -12,6 +13,7 @@ const Pages: React.FC<Props> = () => {
         <PageWrapper>
             <Switch>
                 <Route exact path='/' component={Headlines} />
+                <Route path='/article/:articleId' component={ArticleComments} />
             </Switch>
         </PageWrapper>
     );

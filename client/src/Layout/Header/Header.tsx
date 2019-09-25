@@ -1,8 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { endingNavyBlue, fallingStar } from 'Utilities';
-import Container from './Container';
+import { endingNavyBlue, fallingStar, spacing } from 'Utilities';
+import Container from '../Container';
+import Nav from './Nav';
 
 interface Props {}
 
@@ -11,6 +12,8 @@ const Header: React.FC<Props> = () => {
         <Wrapper>
             <HeaderContainer>
                 <Title>Mongo Headlines</Title>
+
+                <Nav />
             </HeaderContainer>
         </Wrapper>
     );
@@ -27,8 +30,16 @@ const Wrapper = styled.header`
 
 const HeaderContainer = styled(Container)`
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
     text-align: center;
+    padding: ${spacing.md};
+
+    @media screen and (min-width: 768px) {
+        flex-direction: row;
+        justify-content: space-between;
+    }
 `;
 
 const Title = styled.h1`

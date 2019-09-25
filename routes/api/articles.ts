@@ -17,6 +17,21 @@ router.get('/', async (req, res) => {
     }
 });
 
+// @route  GET api/articles
+// @desc   Get all articles
+// @access Public
+router.get('/:_id', async (req, res) => {
+    const { _id } = req.params;
+
+    try {
+        const response = await Article.find({ _id }).limit(1);
+
+        res.status(200).json(response);
+    } catch (err) {
+        res.status(404).json({ success: false, message: err.message });
+    }
+});
+
 // @route  POST api/articles
 // @desc   Post new articles to database
 // @access Public

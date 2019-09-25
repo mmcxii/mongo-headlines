@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { rounded, fallingStar, blueBell, clearChill, spacing } from 'Utilities';
 
 export const Button = styled.button`
+    cursor: pointer;
     text-align: center;
     border-radius: ${rounded};
     border: none;
@@ -20,6 +21,7 @@ export const Button = styled.button`
 `;
 
 export const ButtonLink = styled(Link)`
+    cursor: pointer;
     text-align: center;
     text-decoration: none;
     display: inline-block;

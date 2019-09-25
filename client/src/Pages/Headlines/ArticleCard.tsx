@@ -17,7 +17,7 @@ const ArticleCard: React.FC<Props> = ({ article }) => {
             <CardHeader>{title}</CardHeader>
             <CardBody>
                 <p>{abstract}</p>
-                <CommentButton to={`article/${_id}`}>Comments</CommentButton>
+                <CommentButton to={`/article/${_id}`}>Comments</CommentButton>
             </CardBody>
         </Wrapper>
     );

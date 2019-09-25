@@ -16,6 +16,7 @@ const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/mongoHeadlin
 
 // Use Routes
 app.use('/api/articles', require('./routes/api/articles'));
+app.use('/api/comments', require('./routes/api/comments'));
 
 // Serve static assets in production
 if (process.env.NODE_ENV === 'production') {

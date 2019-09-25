@@ -9,7 +9,13 @@ export interface ArticleProps {
     updated_date: Date;
     url: string;
     saved: boolean;
-    comments: [];
+}
+
+export interface CommentProps {
+    _id: string;
+    article: string;
+    user: string;
+    message: string;
 }
 
 interface Props {}
@@ -25,8 +31,9 @@ const Headlines: React.FC<Props> = () => {
             try {
                 const res: Response = await fetch('/api/articles');
                 const data: [] = await res.json();
+                const displayArticles = await data.slice(0, 11);
 
-                setArticles(data);
+                setArticles(displayArticles);
                 setDataIsLoading(false);
             } catch (err) {
                 console.log(err);
