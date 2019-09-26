@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 import { useForm } from 'Hooks';
-import { Button } from 'Elements';
+import { Button, Form, Input, Label, TextArea } from 'Elements';
 
 interface Props {
     articleId: string;
@@ -36,15 +36,26 @@ const AddCommentForm: React.FC<Props> = ({ articleId, setCommentsShouldBeFetched
     }, [formWasSubmitted]);
 
     return (
-        <form
+        <Form
             onSubmit={e => {
                 e.preventDefault();
                 setFormWasSubmitted(true);
             }}
         >
-            <input type='text' name='user' required value={values.user} onChange={handleChange} />
-            <textarea
+            <Label htmlFor='user'>Name</Label>
+            <Input
+                type='text'
+                name='user'
+                placeholder='Your name'
+                required
+                value={values.user}
+                onChange={handleChange}
+            />
+
+            <Label htmlFor='message'>Comment</Label>
+            <TextArea
                 name='message'
+                placeholder='Your comment'
                 required
                 value={values.message}
                 onChange={handleChange}
@@ -53,7 +64,7 @@ const AddCommentForm: React.FC<Props> = ({ articleId, setCommentsShouldBeFetched
             />
 
             <Button type='submit'>Add Comment</Button>
-        </form>
+        </Form>
     );
 };
 

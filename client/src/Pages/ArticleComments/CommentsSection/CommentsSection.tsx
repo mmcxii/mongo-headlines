@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 
 import { CommentProps } from 'Pages/Headlines';
-
+import { blueBell } from 'Utilities';
+import { CardBody } from 'Elements';
 import AddCommentForm from './AddCommentForm';
 
 interface Props {
@@ -27,20 +28,23 @@ const CommentsSection: React.FC<Props> = ({ articleId }) => {
     }, [commentsShouldBeFetched]);
 
     return (
-        <>
-            {comments.length === 0 ? (
-                <p>This article has no comments.</p>
-            ) : (
-                comments.map(comment => (
-                    <article key={comment._id}>
-                        <h3>{comment.user}</h3>
-                        <p>{comment.message}</p>
-                    </article>
-                ))
-            )}
+        <CardBody>
+            <section>
+                <h3 style={{ color: blueBell }}>Comments</h3>
+                {comments.length === 0 ? (
+                    <p>This article has no comments.</p>
+                ) : (
+                    comments.map(comment => (
+                        <article key={comment._id}>
+                            <h3>{comment.user}</h3>
+                            <p>{comment.message}</p>
+                        </article>
+                    ))
+                )}
+            </section>
 
             <AddCommentForm articleId={articleId} setCommentsShouldBeFetched={setCommentsShouldBeFetched} />
-        </>
+        </CardBody>
     );
 };
 

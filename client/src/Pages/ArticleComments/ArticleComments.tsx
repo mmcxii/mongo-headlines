@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 
 import { ArticleProps } from 'Pages/Headlines';
+import { Card } from 'Elements';
 import ArticleInfo from './ArticleInfo';
 import CommentsSection from './CommentsSection';
 
@@ -41,10 +42,10 @@ const ArticleComments: React.FC<Props> = ({
             ) : (
                 <>
                     {article && (
-                        <>
+                        <Card>
                             <ArticleInfo article={article} />
                             <CommentsSection articleId={articleId} />
-                        </>
+                        </Card>
                     )}
                 </>
             )}
