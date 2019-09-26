@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 
 import { CommentProps } from 'Pages/Headlines';
-import { blueBell } from 'Utilities';
+import { blueBell, spacing } from 'Utilities';
 import { CardBody } from 'Elements';
 import AddCommentForm from './AddCommentForm';
+import styled from 'styled-components';
 
 interface Props {
     articleId: string;
@@ -30,15 +31,16 @@ const CommentsSection: React.FC<Props> = ({ articleId }) => {
     return (
         <CardBody>
             <section>
-                <h3 style={{ color: blueBell }}>Comments</h3>
+                <SectionHeader>Comments</SectionHeader>
+
                 {comments.length === 0 ? (
                     <p>This article has no comments.</p>
                 ) : (
                     comments.map(comment => (
-                        <article key={comment._id}>
-                            <h3>{comment.user}</h3>
+                        <Comment key={comment._id}>
+                            <CommentUser>{comment.user}</CommentUser>
                             <p>{comment.message}</p>
-                        </article>
+                        </Comment>
                     ))
                 )}
             </section>
@@ -49,3 +51,17 @@ const CommentsSection: React.FC<Props> = ({ articleId }) => {
 };
 
 export default CommentsSection;
+
+const SectionHeader = styled.h3`
+    color: ${blueBell};
+    border-bottom: 1px solid ${blueBell};
+`;
+
+const Comment = styled.article`
+    margin: ${spacing.sm};
+`;
+
+const CommentUser = styled.h3`
+    color: ${blueBell};
+    text-transform: capitalize;
+`;

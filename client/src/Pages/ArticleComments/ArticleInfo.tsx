@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import moment from 'moment';
 
 import { CardHeader, CardBody } from 'Elements';
 import { ArticleProps } from '../Headlines';
@@ -14,8 +14,7 @@ const ArticleInfo: React.FC<Props> = ({ article }) => {
         <>
             <CardHeader as='h2'>{title}</CardHeader>
             <CardBody>
-                {/* TODO: Use Moment.js to format date */}
-                <small>{updated_date}</small>
+                <small>{moment(updated_date).format('MMMM Do, YYYY')}</small>
                 <p>{abstract}</p>
             </CardBody>
         </>
