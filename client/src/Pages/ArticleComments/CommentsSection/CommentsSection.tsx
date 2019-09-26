@@ -34,7 +34,7 @@ const CommentsSection: React.FC<Props> = ({ articleId }) => {
                 <SectionHeader>Comments</SectionHeader>
 
                 {comments.length === 0 ? (
-                    <p>This article has no comments.</p>
+                    <p style={{ margin: spacing.sm }}>This article has no comments.</p>
                 ) : (
                     comments.map(comment => (
                         <Comment key={comment._id}>

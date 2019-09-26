@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import styled, { createGlobalStyle } from 'styled-components';
 import Normalize from 'react-normalize';
@@ -8,6 +8,12 @@ import { Footer, Header } from 'Layout';
 import Pages from 'Pages';
 
 const App: React.FC = () => {
+    useEffect(() => {
+        fetch('/api/articles', {
+            method: 'POST',
+        });
+    }, []);
+
     return (
         <BrowserRouter>
             <AppWrapper>

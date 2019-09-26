@@ -3,8 +3,10 @@ import { Switch, Route } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { Container } from 'Layout';
-import Headlines from './Headlines';
+import About from './About';
 import ArticleComments from './ArticleComments';
+import Headlines from './Headlines';
+import Saved from './Saved';
 
 interface Props {}
 
@@ -14,6 +16,8 @@ const Pages: React.FC<Props> = () => {
             <Switch>
                 <Route exact path='/' component={Headlines} />
                 <Route path='/article/:articleId' component={ArticleComments} />
+                <Route path='/about' component={About} />
+                <Route path='/saved' component={Saved} />
             </Switch>
         </PageWrapper>
     );

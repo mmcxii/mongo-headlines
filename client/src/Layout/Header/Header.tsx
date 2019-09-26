@@ -12,9 +12,10 @@ const Header: React.FC<Props> = () => {
     return (
         <Wrapper>
             <HeaderContainer>
-                <Title>
-                    <Link to='/'>Mongo Headlines</Link>
-                </Title>
+                <Logo to='/'>
+                    <Title>Mongo Headlines</Title>
+                    <Subtitle>Fresh rage, every day.</Subtitle>
+                </Logo>
 
                 <Nav />
             </HeaderContainer>
@@ -45,12 +46,18 @@ const HeaderContainer = styled(Container)`
     }
 `;
 
+const Logo = styled(Link)`
+    margin: ${spacing.sm} 0;
+    color: inherit;
+    text-decoration: none;
+`;
+
 const Title = styled.h1`
     letter-spacing: 2px;
-    margin: ${spacing.sm} 0;
+    margin: 0;
+`;
 
-    > a {
-        color: inherit;
-        text-decoration: none;
-    }
+const Subtitle = styled.p`
+    font-family: var(--ff-h);
+    letter-spacing: 1px;
 `;

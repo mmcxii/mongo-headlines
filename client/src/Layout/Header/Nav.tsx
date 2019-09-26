@@ -3,7 +3,6 @@ import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { spacing, fallingStar } from 'Utilities';
-import { Button } from 'Elements';
 
 interface Props {}
 
@@ -17,6 +16,10 @@ const Nav: React.FC<Props> = () => {
             page: 'saved',
             route: '/saved',
         },
+        {
+            page: 'about',
+            route: '/about',
+        },
     ];
 
     return (
@@ -28,15 +31,6 @@ const Nav: React.FC<Props> = () => {
                     </Item>
                 ))}
             </List>
-            <Button
-                onClick={() => {
-                    fetch('/api/articles', {
-                        method: 'POST',
-                    });
-                }}
-            >
-                Get Articles
-            </Button>
         </Navbar>
     );
 };
@@ -45,6 +39,7 @@ export default Nav;
 
 const Navbar = styled.nav`
     font-size: 1.25rem;
+    line-height: 1.25rem;
     text-transform: capitalize;
 `;
 
