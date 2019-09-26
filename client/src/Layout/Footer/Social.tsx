@@ -56,10 +56,10 @@ const Link = styled.a.attrs({ target: 'blank' })`
 `;
 
 const Icon = styled.i`
-    font-size: 1.5rem;
-    height: 3rem;
-    width: 3rem;
-    line-height: 3rem;
+    font-size: 1.25rem;
+    height: 2.5rem;
+    width: 2.5rem;
+    line-height: 2.5rem;
     background: ${mangentaPurple};
     border-radius: 50%;
     text-align: center;
