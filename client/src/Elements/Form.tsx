@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { spacing, rounded, fallingStar } from 'Utilities';
+import { spacing, rounded, white } from 'Utilities';
 
 export const Form = styled.form`
     display: flex;
@@ -21,12 +21,12 @@ export const Input = styled.input`
     border-radius: ${rounded};
     border: none;
     padding: ${spacing.sm} ${spacing.md};
-    background: ${fallingStar};
+    background: ${white};
 `;
 
 export const TextArea = styled.textarea`
     border-radius: ${rounded};
     border: none;
     padding: ${spacing.sm} ${spacing.md};
-    background: ${fallingStar};
+    background: ${white};
 `;
