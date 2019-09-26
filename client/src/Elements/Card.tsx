@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
-import { rounded, spacing, elevation, transition, sarawackWhitePaper, blueBell } from 'Utilities';
+import { rounded, spacing, elevation, transition, cityLights, blueBell } from 'Utilities';
 
 export const Card = styled.section`
     border-radius: ${rounded};
-    background: ${sarawackWhitePaper};
+    background: ${cityLights};
     ${elevation[3]};
     ${transition({ prop: 'box-shadow' })};
 

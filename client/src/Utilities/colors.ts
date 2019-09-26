@@ -6,5 +6,5 @@ export const endingNavyBlue = '#182C61';
 export const fallingStar = '#CAD3C8';
 export const fieryFuchsia = '#B33771';
 export const mangentaPurple = '#6D214F';
-export const sarawackWhitePaper = '#F8EFBA';
+export const cityLights = '#dfe6e9';
 export const shipsOfficer = '#2C3A47';
