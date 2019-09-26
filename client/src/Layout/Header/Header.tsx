@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 import { endingNavyBlue, fallingStar, spacing } from 'Utilities';
 import Container from '../Container';
@@ -11,7 +12,9 @@ const Header: React.FC<Props> = () => {
     return (
         <Wrapper>
             <HeaderContainer>
-                <Title>Mongo Headlines</Title>
+                <Title>
+                    <Link to='/'>Mongo Headlines</Link>
+                </Title>
 
                 <Nav />
             </HeaderContainer>
@@ -44,4 +47,10 @@ const HeaderContainer = styled(Container)`
 
 const Title = styled.h1`
     letter-spacing: 2px;
+    margin: ${spacing.sm} 0;
+
+    > a {
+        color: inherit;
+        text-decoration: none;
+    }
 `;
