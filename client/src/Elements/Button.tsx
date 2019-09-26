@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-import { rounded, fallingStar, blueBell, clearChill, spacing } from 'Utilities';
+import { rounded, fallingStar, blueBell, clearChill, spacing, transition } from 'Utilities';
 
 export const Button = styled.button`
     cursor: pointer;
@@ -13,7 +13,7 @@ export const Button = styled.button`
     font-weight: bolder;
     color: ${fallingStar};
     background: ${blueBell};
-    transition: background ease-in 250ms;
+    ${transition({ prop: 'background' })};
 
     &:hover {
         background: ${clearChill};
@@ -32,7 +32,7 @@ export const ButtonLink = styled(Link)`
     font-weight: bolder;
     color: ${fallingStar};
     background: ${blueBell};
-    transition: background ease-in 250ms;
+    ${transition({ prop: 'background' })};
 
     &:hover {
         background: ${clearChill};

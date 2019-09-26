@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { spacing, mangentaPurple, fieryFuchsia } from 'Utilities';
+import { spacing, mangentaPurple, fieryFuchsia, transition } from 'Utilities';
 
 interface Props {}
 
@@ -63,7 +63,7 @@ const Icon = styled.i`
     background: ${mangentaPurple};
     border-radius: 50%;
     text-align: center;
-    transition: background ease-in 250ms;
+    ${transition({ prop: 'background' })};
 
     &:hover {
         background: ${fieryFuchsia};

@@ -1,22 +1,27 @@
 import styled from 'styled-components';
 
-import { rounded, spacing, sarawackWhitePaper, blueBell, fallingStar } from 'Utilities';
+import { rounded, spacing, elevation, transition, sarawackWhitePaper, blueBell } from 'Utilities';
 
 export const Card = styled.section`
     border-radius: ${rounded};
     background: ${sarawackWhitePaper};
-    overflow: hidden;
+    ${elevation[3]};
+    ${transition({ prop: 'box-shadow' })};
+
+    &:hover {
+        ${elevation[4]};
+    }
 `;
 
 export const CardHeader = styled.h3`
-    width: 100%;
-    padding: ${spacing.sm} ${spacing.md};
-    border-radius: ${rounded};
-    background: ${blueBell};
-    color: ${fallingStar};
+    padding: ${spacing.sm} 0;
+    margin: 0 ${spacing.md};
+    border-bottom: 2px solid ${blueBell};
+    color: ${blueBell};
 `;
 
 export const CardBody = styled.div`
+    font-size: 1.05rem;
     padding: ${spacing.md};
     display: flex;
     flex-direction: column;
