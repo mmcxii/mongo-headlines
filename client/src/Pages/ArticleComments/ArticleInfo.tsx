@@ -14,7 +14,7 @@ const ArticleInfo: React.FC<Props> = ({ article }) => {
         <>
             <CardHeader as='h2'>{title}</CardHeader>
             <CardBody>
-                <small>{moment(updated_date).format('MMMM Do, YYYY')}</small>
+                <small>{moment(updated_date).format('MMMM Do, YYYY, HH:mm')}</small>
                 <p>{abstract}</p>
             </CardBody>
         </>

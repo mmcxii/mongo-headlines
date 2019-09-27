@@ -2,7 +2,6 @@ import React, { useEffect, useContext } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import styled, { createGlobalStyle } from 'styled-components';
 import Normalize from 'react-normalize';
-import moment from 'moment';
 
 import { Store } from './Store';
 import { fallingStar, shipsOfficer, spacing } from 'Utilities';
@@ -22,12 +21,9 @@ const App: React.FC = () => {
             }
         };
 
-        // Fetches new articles at 10 am
-        if (moment().format('HH:mm') === '10:00') {
-            fetch('/api/articles', {
-                method: 'POST',
-            });
-        }
+        fetch('/api/articles', {
+            method: 'POST',
+        });
 
         getArticlesFromLs();
     }, []);
