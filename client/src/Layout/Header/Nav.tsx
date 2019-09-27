@@ -27,7 +27,9 @@ const Nav: React.FC<Props> = () => {
             <List>
                 {navLinks.map(({ page, route }, index) => (
                     <Item key={index}>
-                        <Link to={route}>{page}</Link>
+                        <Link exact to={route}>
+                            {page}
+                        </Link>
                     </Item>
                 ))}
             </List>
@@ -62,6 +64,10 @@ const Link = styled(NavLink)`
     color: inherit;
 
     &:hover {
+        text-decoration: underline;
+    }
+
+    &.active {
         text-decoration: underline;
     }
 `;
