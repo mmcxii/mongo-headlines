@@ -12,7 +12,7 @@ interface Props {
 
 const ArticleCard: React.FC<Props> = ({ article }) => {
     const { state, dispatch } = useContext(Store);
-    const { _id, title, abstract } = article;
+    const { _id, title, abstract, url } = article;
 
     const saveArticle = (id: string) => {
         const lsArticles = localStorage.getItem('savedArticles');
@@ -51,7 +51,11 @@ const ArticleCard: React.FC<Props> = ({ article }) => {
 
     return (
         <Wrapper as='article'>
-            <CardHeader>{title}</CardHeader>
+            <CardHeader>
+                <a href={url} target='blank'>
+                    {title} <i className='far fa-external-link' />
+                </a>
+            </CardHeader>
             <CardBody>
                 <p>{abstract}</p>
                 <ButtonsWrapper>

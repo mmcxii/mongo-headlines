@@ -18,6 +18,15 @@ export const CardHeader = styled.h3`
     margin: 0 ${spacing.md};
     border-bottom: 2px solid ${blueBell};
     color: ${blueBell};
+
+    > a {
+        color: inherit;
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
 `;
 
 export const CardBody = styled.div`

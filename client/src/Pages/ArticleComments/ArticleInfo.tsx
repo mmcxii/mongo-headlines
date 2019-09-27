@@ -9,10 +9,14 @@ interface Props {
 }
 
 const ArticleInfo: React.FC<Props> = ({ article }) => {
-    const { title, abstract, updated_date } = article;
+    const { title, abstract, updated_date, url } = article;
     return (
         <>
-            <CardHeader as='h2'>{title}</CardHeader>
+            <CardHeader as='h2'>
+                <a href={url} target='blank'>
+                    {title} <i className='far fa-external-link' />
+                </a>
+            </CardHeader>
             <CardBody>
                 <small>{moment(updated_date).format('MMMM Do, YYYY, HH:mm')}</small>
                 <p>{abstract}</p>
