@@ -75,6 +75,6 @@ const AppWrapper = styled.div`
     display: grid;
     grid-template-rows: max-content 1fr max-content;
     grid-template-areas: 'header' 'page' 'footer';
-    grid-row-gap: ${spacing.sm};
+    grid-row-gap: ${spacing.md};
     min-height: 100vh;
 `;
