@@ -39,7 +39,11 @@ const About: React.FC<Props> = () => {
                     <a href='https://www.heroku.com' target='blank'>
                         Heroku <i className='far fa-external-link'></i>
                     </a>{' '}
-                    and the code is available for review on Github.
+                    and the code is available for review on{' '}
+                    <a href='https://github.com/mmcxii/mongo-headlines' target='blank'>
+                        Github <i className='far fa-external-link'></i>
+                    </a>
+                    .
                 </p>
                 <p>
                     Additionally, both the front and back ends are built using{' '}
