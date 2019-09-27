@@ -1,21 +1,35 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useContext } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import styled, { createGlobalStyle } from 'styled-components';
 import Normalize from 'react-normalize';
 import moment from 'moment';
 
+import { Store } from './Store';
 import { fallingStar, shipsOfficer, spacing } from 'Utilities';
 import { Footer, Header } from 'Layout';
 import Pages from 'Pages';
 
 const App: React.FC = () => {
+    const { state, dispatch } = useContext(Store);
+
     useEffect(() => {
+        const getArticlesFromLs = () => {
+            const lsArticles = localStorage.getItem('savedArticles');
+            if (lsArticles) {
+                const data = lsArticles.split(',').slice(0, -1);
+
+                return dispatch({ type: 'FETCH_DATA', payload: data });
+            }
+        };
+
         // Fetches new articles at 10 am
-        if (moment().format('hh:mm') === '10:00') {
+        if (moment().format('HH:mm') === '10:00') {
             fetch('/api/articles', {
                 method: 'POST',
             });
         }
+
+        getArticlesFromLs();
     }, []);
 
     return (
@@ -25,7 +39,9 @@ const App: React.FC = () => {
                 <GlobalStyles />
 
                 <Header />
+
                 <Pages />
+
                 <Footer />
             </AppWrapper>
         </BrowserRouter>

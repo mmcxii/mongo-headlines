@@ -6,7 +6,6 @@ const ArticleSchema = createSchema({
     updated_date: Type.date(),
     abstract: Type.string(),
     url: Type.string(),
-    saved: Type.boolean({ default: false }),
 });
 
 const Article = typedModel('article', ArticleSchema);

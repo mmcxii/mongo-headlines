@@ -8,7 +8,6 @@ export interface ArticleProps {
     abstract: string;
     updated_date: Date;
     url: string;
-    saved: boolean;
 }
 
 export interface CommentProps {
@@ -16,6 +15,7 @@ export interface CommentProps {
     article: string;
     user: string;
     message: string;
+    postedAt: Date;
 }
 
 interface Props {}

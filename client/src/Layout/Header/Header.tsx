@@ -14,7 +14,7 @@ const Header: React.FC<Props> = () => {
             <HeaderContainer>
                 <Logo to='/'>
                     <Title>Mongo Headlines</Title>
-                    <Subtitle>Fresh rage, every day.</Subtitle>
+                    <Subtitle>Fresh rage, every day at ten.</Subtitle>
                 </Logo>
 
                 <Nav />

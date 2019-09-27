@@ -17,8 +17,29 @@ router.get('/', async (req, res) => {
     }
 });
 
+// @route  GET api/articles/saved/:ids
+// @desc   Get saved articles by id
+// @access Public
+router.get('/saved/:ids', async (req, res) => {
+    const { ids } = req.params;
+    const split: string[] = ids.split(',');
+
+    try {
+        const foundArticles: {}[] = [];
+
+        for (let i = 0; i < split.length - 1; i++) {
+            const response = await Article.find({ _id: split[i] }).limit(1);
+            foundArticles.push(response[0]);
+        }
+
+        res.status(200).json(foundArticles);
+    } catch (err) {
+        res.status(404).json({ success: false, message: err.message });
+    }
+});
+
 // @route  GET api/articles
-// @desc   Get all articles
+// @desc   Get article by id
 // @access Public
 router.get('/:_id', async (req, res) => {
     const { _id } = req.params;
