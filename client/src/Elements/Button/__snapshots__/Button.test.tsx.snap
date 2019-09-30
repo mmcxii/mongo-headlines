@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Button /> tests renders a button with the text \`hello\` 1`] = `
+.c0 {
+  cursor: pointer;
+  text-align: center;
+  border-radius: 5px;
+  border: none;
+  padding: .5rem 1rem;
+  margin: .25rem;
+  font-weight: bolder;
+  color: #CAD3C8;
+  background: #3B3B98;
+  -webkit-transition: background 300ms ease;
+  transition: background 300ms ease;
+}
+
+.c0:hover {
+  background: #1B9CFC;
+}
+
+<button
+  class="c0"
+  data-testid="testButton"
+>
+  hello
+</button>
+`;
+
+exports[`<ButtonLink /> tests renders a link to the homepage with button stylings 1`] = `
+.c0 {
+  cursor: pointer;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 5px;
+  border: none;
+  padding: .5rem 1rem;
+  margin: .25rem;
+  font-weight: bolder;
+  color: #CAD3C8;
+  background: #3B3B98;
+  -webkit-transition: background 300ms ease;
+  transition: background 300ms ease;
+}
+
+.c0:hover {
+  background: #1B9CFC;
+}
+
+<a
+  class="c0"
+  href="/"
+>
+  Home
+</a>
+`;

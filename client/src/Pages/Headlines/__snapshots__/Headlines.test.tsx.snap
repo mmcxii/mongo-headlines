@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Headlines /> tests 1`] = `
+<section>
+  <h2>
+    Current Headlines
+  </h2>
+  <p>
+    Loading...
+  </p>
+</section>
+`;

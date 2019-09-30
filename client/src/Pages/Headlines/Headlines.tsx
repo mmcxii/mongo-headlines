@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import styled from 'styled-components';
 
 import { useScrollToTop } from 'Hooks';
-import { spacing, clearChill, blueBell } from 'Utilities';
-import { Button } from 'Elements';
 import ArticleCard from './ArticleCard';
+import Pagination from './Pagination';
 
 export interface ArticleProps {
     _id: string;
@@ -50,11 +48,6 @@ const Headlines: React.FC<Props> = () => {
     }, []);
 
     //* Pagination
-    const pageNumbers: number[] = [];
-    for (let i = 1; i <= Math.ceil(articles.length / 10); i++) {
-        pageNumbers.push(i);
-    }
-
     const indexOfLastArticle = currentPage * 10;
     const indexOfFirstArticle = indexOfLastArticle - 10;
     const currentArticles = articles.slice(indexOfFirstArticle, indexOfLastArticle);
@@ -71,35 +64,13 @@ const Headlines: React.FC<Props> = () => {
                 )}
             </section>
 
-            <Pagination>
-                {pageNumbers.map(number => (
-                    <PaginationItem key={number} id={`${number}`}>
-                        <PaginationButton
-                            current={currentPage === number}
-                            onClick={() => setCurrentPage(number)}
-                        >
-                            {number}
-                        </PaginationButton>
-                    </PaginationItem>
-                ))}
-            </Pagination>
+            <Pagination
+                currentPage={currentPage}
+                numberOfArticles={articles.length}
+                setCurrentPage={setCurrentPage}
+            />
         </>
     );
 };
 
 export default Headlines;
-
-const Pagination = styled.ul`
-    display: flex;
-    flex-wrap: wrap;
-`;
-
-const PaginationItem = styled.li`
-    cursor: pointer;
-    list-style: none;
-    margin: 0 ${spacing.xs};
-`;
-
-const PaginationButton = styled(Button)<{ current: boolean }>`
-    background: ${props => (props.current ? clearChill : blueBell)};
-`;

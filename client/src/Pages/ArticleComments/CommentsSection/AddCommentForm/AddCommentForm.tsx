@@ -37,6 +37,7 @@ const AddCommentForm: React.FC<Props> = ({ articleId, setCommentsShouldBeFetched
 
     return (
         <Form
+            data-testid='addCommentForm'
             onSubmit={e => {
                 e.preventDefault();
                 setFormWasSubmitted(true);
@@ -63,7 +64,9 @@ const AddCommentForm: React.FC<Props> = ({ articleId, setCommentsShouldBeFetched
                 rows={10}
             />
 
-            <Button type='submit'>Add Comment</Button>
+            <Button data-testid='addCommentSubmitButton' type='submit'>
+                Add Comment
+            </Button>
         </Form>
     );
 };

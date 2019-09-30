@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Card /> tests should render a card as an article with an h2 header and a body as a p 1`] = `
+<article
+  class="sc-bdVaJa cmRAvc"
+>
+  <h2
+    class="sc-bwzfXH dxWcPK"
+  >
+    Test Card Two
+  </h2>
+  <p
+    class="sc-htpNat hmHgGj"
+  >
+    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officiis modi velit commodi! Ullam est odit in beatae ratione qui ex exercitationem ipsam explicabo, quidem quas, commodi magni. Ratione, tempora. Aperiam.
+  </p>
+</article>
+`;
+
+exports[`<Card /> tests should render a card with a header and body 1`] = `
+<section
+  class="sc-bdVaJa cmRAvc"
+>
+  <h3
+    class="sc-bwzfXH dxWcPK"
+  >
+    Test Card
+  </h3>
+  <div
+    class="sc-htpNat hmHgGj"
+  >
+    <p>
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsam dolores esse harum voluptates laborum autem necessitatibus amet eveniet quo incidunt, ab inventore quidem at! Delectus sed molestias accusantium libero eos.
+    </p>
+  </div>
+</section>
+`;

@@ -18,8 +18,12 @@
         "typescript": "^3.6.3"
     },
     "devDependencies": {
+        "@testing-library/jest-dom": "^4.1.0",
+        "@testing-library/react": "^9.2.0",
         "concurrently": "^4.1.2",
-        "nodemon": "^1.19.2"
+        "jest": "^24.9.0",
+        "nodemon": "^1.19.2",
+        "ts-jest": "^24.1.0"
     },
     "scripts": {
         "start": "ts-node server.ts",
